@@ -1,5 +1,5 @@
 const canvas = document.querySelector('#canvas');
-
+let cubeXYZ = [[-0.25,-0.25,0.25,1],[-0.25,-0.25,-0.25,1],[0.25,-0.25,-0.25,1],[0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[0.25,0.25,-0.25,1],[-0.25,0.25,-0.25,1],[-0.25,0.25,0.25,1]];
 function drawSquare(ctx,x1,y1,x2,y2){
     drawLine(ctx, [x1, y1], [x2, y1]);
     drawLine(ctx, [x1, y1], [x1, y2]);
@@ -33,13 +33,15 @@ if (canvas.getContext) {
     const ctx = canvas.getContext('2d');
     // drawLine(ctx, [-0.25, -0.25], [0.25, 0.25]);
     // drawSquare(ctx, 300, 400, 500, 200);
-    cubeXYZ = [[-0.25,-0.25,0.25,1],[-0.25,-0.25,-0.25,1],[0.25,-0.25,-0.25,1],[0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[0.25,0.25,-0.25,1],[-0.25,0.25,-0.25,1],[-0.25,0.25,0.25,1]];
-    pmatrix=createPerspectiveMatrix(60,5/8,120,1000);
+    pmatrix=createPerspectiveMatrix(60,5/8,10,1000);
     rxmatrix=createXRotationMatrix(30);
-    rymatrix=createYRotationMatrix(30);
+    rymatrix=createYRotationMatrix(60);
+    rzmatrix=createZRotationMatrix(30);
     cubeXYZ.forEach((e,index) => {
-      let res = multv(rxmatrix,e);
+      let res = multv(pmatrix,e);
+      res = multv(rxmatrix,e);
       res=multv(rymatrix,res);
+      res=multv(rzmatrix,res);
       console.log(res);
       if (res[3]!=0){
         res[0] = res[0] / res[3];
