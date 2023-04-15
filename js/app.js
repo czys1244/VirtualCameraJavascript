@@ -1,6 +1,6 @@
 const canvas = document.querySelector('#canvas');
-let cubeXYZ = [[-0.25,-0.25,0.25,1],[-0.25,-0.25,-0.25,1],[0.25,-0.25,-0.25,1],[0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[0.25,0.25,-0.25,1],[-0.25,0.25,-0.25,1],[-0.25,0.25,0.25,1]];
-let pmatrix=createPerspectiveMatrix(60,5/8,0.1,1);
+let cubeXYZ = [[-0.25,-0.25,0.25,1],[-0.25,-0.25,0.75,1],[0.25,-0.25,0.75,1],[0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[0.25,0.25,0.75,1],[-0.25,0.25,0.75,1],[-0.25,0.25,0.25,1]];
+let pmatrix=createPerspectiveMatrix(90,5/8,0.1,1);
 function drawSquare(ctx,x1,y1,x2,y2){
     drawLine(ctx, [x1, y1], [x2, y1]);
     drawLine(ctx, [x1, y1], [x1, y2]);
@@ -40,10 +40,11 @@ if (canvas.getContext) {
     let rymatrix=createYRotationMatrix(60);
     let rzmatrix=createZRotationMatrix(30);
     cubeXYZ.forEach((e,index) => {
-      let res = multv(rxmatrix,e);
+      let res = multv(pmatrix,e);
+      res = multv(rxmatrix,e);
       res=multv(rymatrix,res);
       res=multv(rzmatrix,res);
-      res = multv(pmatrix,res);
+      // res = multv(pmatrix,res);
       if (res[3]!=0){
         res[0] = res[0] / res[3];
         res[1] = res[1] / res[3];

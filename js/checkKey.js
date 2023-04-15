@@ -3,12 +3,12 @@ function checkKey(e) {
     if (e.keyCode == '38') {
         console.log("up")
         const ctx = canvas.getContext('2d');
-        let xRmatrix=createXRotationMatrix(-100);
+        let xRmatrix=createXRotationMatrix(-1);
         // rYmatrix=createYRotationMatrix(60);
         // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xRmatrix,e);
-            res = multv(pmatrix,res);
+            // res = multv(pmatrix,res);
             // res=multv(rymatrix,res);
             // res=multv(rzmatrix,res);
             
@@ -35,7 +35,7 @@ function checkKey(e) {
         // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xRmatrix,e);
-            res = multv(pmatrix,res);
+            // res = multv(pmatrix,res);
             // res=multv(rymatrix,res);
             // res=multv(rzmatrix,res);
             console.log(res);
@@ -60,7 +60,7 @@ function checkKey(e) {
         // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(yRmatrix,e);
-            res = multv(pmatrix,res);
+            // res = multv(pmatrix,res);
             // res=multv(rymatrix,res);
             // res=multv(rzmatrix,res);
             console.log(res);
@@ -86,7 +86,7 @@ function checkKey(e) {
         // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(yRmatrix,e);
-            res = multv(pmatrix,res);
+            // res = multv(pmatrix,res);
             // res=multv(rymatrix,res);
             // res=multv(rzmatrix,res);
             console.log(res);
