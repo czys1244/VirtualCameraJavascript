@@ -8,22 +8,16 @@ function checkKey(e) {
         // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xRmatrix,e);
-            // res = multv(pmatrix,res);
-            // res=multv(rymatrix,res);
-            // res=multv(rzmatrix,res);
-            // console.log(res);
-            // cubeXYZ[index] =res;
-            // res=multv(pmatrix,res);
-            // if (res[3]!=0){
-            //   res[0] = res[0] / res[3];
-            //   res[1] = res[1] / res[3];
-            //   res[2] = res[2] / res[3];
-            //   res[3]=res[3]/res[3];
-            // }
-            
-            // console.log(res);
             cubeXYZ[index] =res;
-            projected[index]=multv(pmatrix,res);
+            res=multv(pmatrix,res);
+            if (res[3]!=0){
+              res[0] = res[0] / res[3];
+              res[1] = res[1] / res[3];
+              res[2] = res[2] / res[3];
+              res[3]=res[3]/res[3];
+            }
+            
+            projected[index]=res;
           });
         console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -38,21 +32,15 @@ function checkKey(e) {
         // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xRmatrix,e);
-            // res = multv(pmatrix,res);
-            // res=multv(rymatrix,res);
-            // res=multv(rzmatrix,res);
-            console.log(res);
-            
-            
-            // console.log(res);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            // if (res[3]!=0){
-            //   res[0] = res[0] / res[3];
-            //   res[1] = res[1] / res[3];
-            //   res[2] = res[2] / res[3];
-            //   res[3]=res[3]/res[3];
-            // }
+            if (res[3]!=0){
+              res[0] = res[0] / res[3];
+              res[1] = res[1] / res[3];
+              res[2] = res[2] / res[3];
+              res[3]=res[3]/res[3];
+            }
+            
             projected[index]=res;
           });
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -62,24 +50,19 @@ function checkKey(e) {
         console.log("left")
         const ctx = canvas.getContext('2d');
         yRmatrix=createYRotationMatrix(-1);
-        // rYmatrix=createYRotationMatrix(60);
-        // rZmatrix=createZRotationMatrix(60);
+        
         cubeXYZ.forEach((e,index) => {
             let res = multv(yRmatrix,e);
-            // res = multv(pmatrix,res);
-            // res=multv(rymatrix,res);
-            // res=multv(rzmatrix,res);
-            console.log(res);
             
-            // console.log(res);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            // if (res[3]!=0){
-            //   res[0] = res[0] / res[3];
-            //   res[1] = res[1] / res[3];
-            //   res[2] = res[2] / res[3];
-            //   res[3]=res[3]/res[3];
-            // }
+            if (res[3]!=0){
+              res[0] = res[0] / res[3];
+              res[1] = res[1] / res[3];
+              res[2] = res[2] / res[3];
+              res[3]=res[3]/res[3];
+            }
+            
             projected[index]=res;
           });
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -90,24 +73,19 @@ function checkKey(e) {
         console.log("right")
         const ctx = canvas.getContext('2d');
         yRmatrix=createYRotationMatrix(1);
-        // rYmatrix=createYRotationMatrix(60);
-        // rZmatrix=createZRotationMatrix(60);
+        
         cubeXYZ.forEach((e,index) => {
             let res = multv(yRmatrix,e);
-            // res = multv(pmatrix,res);
-            // res=multv(rymatrix,res);
-            // res=multv(rzmatrix,res);
-            console.log(res);
-            // if (res[3]!=0){
-            //   res[0] = res[0] / res[3];
-            //   res[1] = res[1] / res[3];
-            //   res[2] = res[2] / res[3];
-            //   res[3]=res[3]/res[3];
-            // }
-            
-            console.log(res);
             cubeXYZ[index] =res;
-            projected[index]=multv(pmatrix,res);
+            res=multv(pmatrix,res);
+            if (res[3]!=0){
+              res[0] = res[0] / res[3];
+              res[1] = res[1] / res[3];
+              res[2] = res[2] / res[3];
+              res[3]=res[3]/res[3];
+            }
+            
+            projected[index]=res;
           });
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
@@ -116,24 +94,18 @@ function checkKey(e) {
         console.log("a")
         const ctx = canvas.getContext('2d');
         let xTmatrix=xTranslationMatrix(-0.1);
-        // rYmatrix=createYRotationMatrix(60);
-        // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xTmatrix,e);
-            // res = multv(pmatrix,res);
-            // res=multv(rymatrix,res);
-            // res=multv(rzmatrix,res);
-            console.log(res);
-            // if (res[3]!=0){
-            //   res[0] = res[0] / res[3];
-            //   res[1] = res[1] / res[3];
-            //   res[2] = res[2] / res[3];
-            //   res[3]=res[3]/res[3];
-            // }
-            
-            console.log(res);
             cubeXYZ[index] =res;
-            projected[index]=multv(pmatrix,res);
+            res=multv(pmatrix,res);
+            if (res[3]!=0){
+              res[0] = res[0] / res[3];
+              res[1] = res[1] / res[3];
+              res[2] = res[2] / res[3];
+              res[3]=res[3]/res[3];
+            }
+            
+            projected[index]=res;
           });
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
@@ -142,24 +114,18 @@ function checkKey(e) {
         console.log("d")
         const ctx = canvas.getContext('2d');
         let xTmatrix=xTranslationMatrix(0.1);
-        // rYmatrix=createYRotationMatrix(60);
-        // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xTmatrix,e);
-            // res = multv(pmatrix,res);
-            // res=multv(rymatrix,res);
-            // res=multv(rzmatrix,res);
-            console.log(res);
-            // if (res[3]!=0){
-            //   res[0] = res[0] / res[3];
-            //   res[1] = res[1] / res[3];
-            //   res[2] = res[2] / res[3];
-            //   res[3]=res[3]/res[3];
-            // }
-            
-            console.log(res);
             cubeXYZ[index] =res;
-            projected[index]=multv(pmatrix,res);
+            res=multv(pmatrix,res);
+            if (res[3]!=0){
+              res[0] = res[0] / res[3];
+              res[1] = res[1] / res[3];
+              res[2] = res[2] / res[3];
+              res[3]=res[3]/res[3];
+            }
+            
+            projected[index]=res;
           });
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
@@ -179,10 +145,7 @@ function checkKey(e) {
               res[2] = res[2] / res[3];
               res[3]=res[3]/res[3];
             }
-            
-            console.log(res);
-            
-            projected[index]=multv(pmatrix,res);
+            projected[index]=res;
           });
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
@@ -191,24 +154,18 @@ function checkKey(e) {
         console.log("s")
         const ctx = canvas.getContext('2d');
         let yTmatrix=yTranslationMatrix(0.1);
-        // rYmatrix=createYRotationMatrix(60);
-        // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(yTmatrix,e);
-            // res = multv(pmatrix,res);
-            // res=multv(rymatrix,res);
-            // res=multv(rzmatrix,res);
-            console.log(res);
-            // if (res[3]!=0){
-            //   res[0] = res[0] / res[3];
-            //   res[1] = res[1] / res[3];
-            //   res[2] = res[2] / res[3];
-            //   res[3]=res[3]/res[3];
-            // }
-            
-            console.log(res);
             cubeXYZ[index] =res;
-            projected[index]=multv(pmatrix,res);
+            res=multv(pmatrix,res);
+            if (res[3]!=0){
+              res[0] = res[0] / res[3];
+              res[1] = res[1] / res[3];
+              res[2] = res[2] / res[3];
+              res[3]=res[3]/res[3];
+            }
+            
+            projected[index]=res;
           });
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
@@ -216,7 +173,7 @@ function checkKey(e) {
     else if (e.keyCode == '81') {
         console.log("q")
         const ctx = canvas.getContext('2d');
-        let zTmatrix=zTranslationMatrix(-0.1);
+        let zTmatrix=zTranslationMatrix(-10);
         
         cubeXYZ.forEach((e,index) => {
             let res = multv(zTmatrix,e);
@@ -237,7 +194,7 @@ function checkKey(e) {
     else if (e.keyCode == '69') {
         console.log("e")
         const ctx = canvas.getContext('2d');
-        let zTmatrix=zTranslationMatrix(0.1);
+        let zTmatrix=zTranslationMatrix(10);
         
         cubeXYZ.forEach((e,index) => {
             let res = multv(zTmatrix,e);

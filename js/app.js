@@ -2,12 +2,6 @@ const canvas = document.querySelector('#canvas');
 let cubeXYZ = [[-0.25,-0.25,0.25,1],[-0.25,-0.25,0.75,1],[0.25,-0.25,0.75,1],[0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[0.25,0.25,0.75,1],[-0.25,0.25,0.75,1],[-0.25,0.25,0.25,1]];
 let projected = [[-0.25,-0.25,0.25,1],[-0.25,-0.25,0.75,1],[0.25,-0.25,0.75,1],[0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[0.25,0.25,0.75,1],[-0.25,0.25,0.75,1],[-0.25,0.25,0.25,1]];
 let pmatrix=createPerspectiveMatrix(120,5/8,100,1000);
-function drawSquare(ctx,x1,y1,x2,y2){
-    drawLine(ctx, [x1, y1], [x2, y1]);
-    drawLine(ctx, [x1, y1], [x1, y2]);
-    drawLine(ctx, [x1, y2], [x2, y2]);
-    drawLine(ctx, [x2, y2], [x2, y1]);
-}
 
 function drawCube(ctx,c){
   connect(ctx,c,0,1);
@@ -38,8 +32,9 @@ if (canvas.getContext) {
     let rymatrix=createYRotationMatrix(30);
     let rzmatrix=createZRotationMatrix(30);
     cubeXYZ.forEach((e,index) => {
-      let res = multv(rxmatrix,e);
-      res=multv(rymatrix,e);
+      let res = multv(rymatrix,e);
+      // res=multv(rymatrix,e);
+      
       cubeXYZ[index]=res;
       res = multv(pmatrix,res);
       if (res[3]!=0){
