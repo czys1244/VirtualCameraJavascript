@@ -173,7 +173,7 @@ function checkKey(e) {
     else if (e.keyCode == '81') {
         console.log("q")
         const ctx = canvas.getContext('2d');
-        let zTmatrix=zTranslationMatrix(-10);
+        let zTmatrix=zTranslationMatrix(-0.001);
         
         cubeXYZ.forEach((e,index) => {
             let res = multv(zTmatrix,e);
@@ -194,7 +194,7 @@ function checkKey(e) {
     else if (e.keyCode == '69') {
         console.log("e")
         const ctx = canvas.getContext('2d');
-        let zTmatrix=zTranslationMatrix(10);
+        let zTmatrix=zTranslationMatrix(0.001);
         
         cubeXYZ.forEach((e,index) => {
             let res = multv(zTmatrix,e);
