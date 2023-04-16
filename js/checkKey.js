@@ -178,7 +178,7 @@ function checkKey(e) {
         cubeXYZ.forEach((e,index) => {
             let res = multv(zTmatrix,e);
             cubeXYZ[index] =res;
-            res==multv(pmatrix,res);
+            res=multv(pmatrix,res);
             if (res[3]!=0){
                 res[0] = res[0] / res[3];
                 res[1] = res[1] / res[3];
@@ -199,7 +199,7 @@ function checkKey(e) {
         cubeXYZ.forEach((e,index) => {
             let res = multv(zTmatrix,e);
             cubeXYZ[index] =res;
-            res==multv(pmatrix,res);
+            res=multv(pmatrix,res);
             if (res[3]!=0){
                 res[0] = res[0] / res[3];
                 res[1] = res[1] / res[3];
