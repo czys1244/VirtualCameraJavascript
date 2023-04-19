@@ -15,6 +15,7 @@ function drawCube(ctx, c) {
         connect(ctx, c, 7+i*8, 4+i*8);
     }
     connect(ctx, c, 4*8, 4*8+1);
+    connect(ctx, c, 4*8+2, 4*8+3);
     // connect(ctx, c, 0, 1);
     // connect(ctx, c, 1, 2);
     // connect(ctx, c, 2, 3);
