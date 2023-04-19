@@ -1,22 +1,23 @@
+function normalize(res){
+  if (res[3]!=0){
+    res[0] = res[0] / res[3];
+    res[1] = res[1] / res[3];
+    res[2] = res[2] / res[3];
+    res[3]=res[3]/res[3];
+  }
+  return res;
+}
 function checkKey(e) {
     e = e || window.event;
     if (e.keyCode == '38') {
         console.log("up")
         const ctx = canvas.getContext('2d');
         let xRmatrix=createXRotationMatrix(1);
-        // rYmatrix=createYRotationMatrix(60);
-        // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xRmatrix,e);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-              res[0] = res[0] / res[3];
-              res[1] = res[1] / res[3];
-              res[2] = res[2] / res[3];
-              res[3]=res[3]/res[3];
-            }
-            
+            res = normalize(res);
             projected[index]=res;
           });
         console.log(cubeXYZ);
@@ -28,21 +29,14 @@ function checkKey(e) {
         console.log("down")
         const ctx = canvas.getContext('2d');
         let xRmatrix=createXRotationMatrix(-1);
-        // rYmatrix=createYRotationMatrix(60);
-        // rZmatrix=createZRotationMatrix(60);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xRmatrix,e);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-              res[0] = res[0] / res[3];
-              res[1] = res[1] / res[3];
-              res[2] = res[2] / res[3];
-              res[3]=res[3]/res[3];
-            }
-            
+            res = normalize(res);
             projected[index]=res;
           });
+          console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -56,15 +50,11 @@ function checkKey(e) {
             
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-              res[0] = res[0] / res[3];
-              res[1] = res[1] / res[3];
-              res[2] = res[2] / res[3];
-              res[3]=res[3]/res[3];
-            }
+            res = normalize(res);
             
             projected[index]=res;
           });
+          console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
         
@@ -78,18 +68,48 @@ function checkKey(e) {
             let res = multv(yRmatrix,e);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-              res[0] = res[0] / res[3];
-              res[1] = res[1] / res[3];
-              res[2] = res[2] / res[3];
-              res[3]=res[3]/res[3];
-            }
+            res = normalize(res);
             
             projected[index]=res;
           });
+          console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
+    else if (e.keyCode == '80') {
+      console.log("p")
+      const ctx = canvas.getContext('2d');
+      zRmatrix=createZRotationMatrix(1);
+      
+      cubeXYZ.forEach((e,index) => {
+          let res = multv(zRmatrix,e);
+          cubeXYZ[index] =res;
+          res=multv(pmatrix,res);
+          res = normalize(res);
+          
+          projected[index]=res;
+        });
+        console.log(cubeXYZ);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawCube(ctx,projected);
+  }
+  else if (e.keyCode == '79') {
+    console.log("o")
+    const ctx = canvas.getContext('2d');
+    zRmatrix=createZRotationMatrix(-1);
+    
+    cubeXYZ.forEach((e,index) => {
+        let res = multv(zRmatrix,e);
+        cubeXYZ[index] =res;
+        res=multv(pmatrix,res);
+        res = normalize(res);
+        
+        projected[index]=res;
+      });
+      console.log(cubeXYZ);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawCube(ctx,projected);
+}
     else if (e.keyCode == '65') {
         console.log("a")
         const ctx = canvas.getContext('2d');
@@ -98,15 +118,11 @@ function checkKey(e) {
             let res = multv(xTmatrix,e);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-              res[0] = res[0] / res[3];
-              res[1] = res[1] / res[3];
-              res[2] = res[2] / res[3];
-              res[3]=res[3]/res[3];
-            }
+            res = normalize(res);
             
             projected[index]=res;
           });
+          console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -118,15 +134,11 @@ function checkKey(e) {
             let res = multv(xTmatrix,e);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-              res[0] = res[0] / res[3];
-              res[1] = res[1] / res[3];
-              res[2] = res[2] / res[3];
-              res[3]=res[3]/res[3];
-            }
+            res = normalize(res);
             
             projected[index]=res;
           });
+          console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -139,14 +151,10 @@ function checkKey(e) {
             let res = multv(yTmatrix,e);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-              res[0] = res[0] / res[3];
-              res[1] = res[1] / res[3];
-              res[2] = res[2] / res[3];
-              res[3]=res[3]/res[3];
-            }
+            res = normalize(res);
             projected[index]=res;
           });
+          console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -158,15 +166,11 @@ function checkKey(e) {
             let res = multv(yTmatrix,e);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-              res[0] = res[0] / res[3];
-              res[1] = res[1] / res[3];
-              res[2] = res[2] / res[3];
-              res[3]=res[3]/res[3];
-            }
+            res = normalize(res);
             
             projected[index]=res;
           });
+          console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -179,12 +183,7 @@ function checkKey(e) {
             let res = multv(zTmatrix,e);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-                res[0] = res[0] / res[3];
-                res[1] = res[1] / res[3];
-                res[2] = res[2] / res[3];
-                res[3]=res[3]/res[3];
-              }
+            res = normalize(res);
             
             projected[index]=res;
           });
@@ -201,12 +200,7 @@ function checkKey(e) {
             let res = multv(zTmatrix,e);
             cubeXYZ[index] =res;
             res=multv(pmatrix,res);
-            if (res[3]!=0){
-                res[0] = res[0] / res[3];
-                res[1] = res[1] / res[3];
-                res[2] = res[2] / res[3];
-                res[3]=res[3]/res[3];
-              }
+            res = normalize(res);
             
             projected[index]=res;
           });
@@ -221,12 +215,7 @@ function checkKey(e) {
       
       cubeXYZ.forEach((e,index) => {
           let res=multv(pmatrix,e);
-          if (res[3]!=0){
-              res[0] = res[0] / res[3];
-              res[1] = res[1] / res[3];
-              res[2] = res[2] / res[3];
-              res[3]=res[3]/res[3];
-            }
+          res = normalize(res);
           
           projected[index]=res;
         });
@@ -241,12 +230,7 @@ function checkKey(e) {
     
     cubeXYZ.forEach((e,index) => {
         let res=multv(pmatrix,e);
-        if (res[3]!=0){
-            res[0] = res[0] / res[3];
-            res[1] = res[1] / res[3];
-            res[2] = res[2] / res[3];
-            res[3]=res[3]/res[3];
-          }
+        res = normalize(res);
         
         projected[index]=res;
       });
