@@ -173,8 +173,8 @@ function checkKey(e) {
     else if (e.keyCode == '81') {
         console.log("q")
         const ctx = canvas.getContext('2d');
-        let zTmatrix=zTranslationMatrix(-0.001);
-        
+        let zTmatrix=zTranslationMatrix(-0.1);
+        console.log()
         cubeXYZ.forEach((e,index) => {
             let res = multv(zTmatrix,e);
             cubeXYZ[index] =res;
@@ -188,13 +188,14 @@ function checkKey(e) {
             
             projected[index]=res;
           });
+        console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
     else if (e.keyCode == '69') {
         console.log("e")
         const ctx = canvas.getContext('2d');
-        let zTmatrix=zTranslationMatrix(0.001);
+        let zTmatrix=zTranslationMatrix(0.1);
         
         cubeXYZ.forEach((e,index) => {
             let res = multv(zTmatrix,e);
@@ -209,7 +210,48 @@ function checkKey(e) {
             
             projected[index]=res;
           });
+        console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
+    else if (e.keyCode == '109') {
+      console.log("-")
+      const ctx = canvas.getContext('2d');
+      zoom(10);
+      
+      cubeXYZ.forEach((e,index) => {
+          let res=multv(pmatrix,e);
+          if (res[3]!=0){
+              res[0] = res[0] / res[3];
+              res[1] = res[1] / res[3];
+              res[2] = res[2] / res[3];
+              res[3]=res[3]/res[3];
+            }
+          
+          projected[index]=res;
+        });
+        console.log(fov);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawCube(ctx,projected);
+  }
+  else if (e.keyCode == '107') {
+    console.log("+")
+    const ctx = canvas.getContext('2d');
+    zoom(-10);
+    
+    cubeXYZ.forEach((e,index) => {
+        let res=multv(pmatrix,e);
+        if (res[3]!=0){
+            res[0] = res[0] / res[3];
+            res[1] = res[1] / res[3];
+            res[2] = res[2] / res[3];
+            res[3]=res[3]/res[3];
+          }
+        
+        projected[index]=res;
+      });
+      console.log(fov);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawCube(ctx,projected);
+}
 }

@@ -1,7 +1,11 @@
 const canvas = document.querySelector('#canvas');
 let cubeXYZ = [[-0.25,-0.25,0.25,1],[-0.25,-0.25,0.75,1],[0.25,-0.25,0.75,1],[0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[0.25,0.25,0.75,1],[-0.25,0.25,0.75,1],[-0.25,0.25,0.25,1]];
 let projected = [[-0.25,-0.25,0.25,1],[-0.25,-0.25,0.75,1],[0.25,-0.25,0.75,1],[0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[0.25,0.25,0.75,1],[-0.25,0.25,0.75,1],[-0.25,0.25,0.25,1]];
-let pmatrix=createPerspectiveMatrix(120,5/8,100,1000);
+let fov = 120;
+let aspect=5/8;
+let znear=100;
+let zfar=1000;
+let pmatrix=createPerspectiveMatrix(fov,aspect,znear,zfar);
 
 function drawCube(ctx,c){
   connect(ctx,c,0,1);
