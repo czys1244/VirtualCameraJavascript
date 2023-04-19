@@ -188,7 +188,7 @@ function checkKey(e) {
             
             projected[index]=res;
           });
-        console.log(projected);
+        console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -210,7 +210,7 @@ function checkKey(e) {
             
             projected[index]=res;
           });
-        console.log(projected);
+        console.log(cubeXYZ);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
