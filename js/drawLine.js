@@ -8,6 +8,7 @@ function drawLine(ctx, begin, end, stroke = 'black', width = 1) {
     }
     a = [(begin[0]+1)*400, (begin[1]+1)*250];
     b = [(end[0]+1)*400, (end[1]+1)*250];
+    
     ctx.beginPath();
     ctx.moveTo(...a);
     ctx.lineTo(...b);

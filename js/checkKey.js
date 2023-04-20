@@ -20,7 +20,7 @@ function checkKey(e) {
             res = normalize(res);
             projected[index]=res;
           });
-        console.log(cubeXYZ);
+        console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
         
@@ -36,7 +36,7 @@ function checkKey(e) {
             res = normalize(res);
             projected[index]=res;
           });
-          console.log(cubeXYZ);
+          console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -54,7 +54,7 @@ function checkKey(e) {
             
             projected[index]=res;
           });
-          console.log(cubeXYZ);
+          console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
         
@@ -72,7 +72,7 @@ function checkKey(e) {
             
             projected[index]=res;
           });
-          console.log(cubeXYZ);
+          console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -89,7 +89,7 @@ function checkKey(e) {
           
           projected[index]=res;
         });
-        console.log(cubeXYZ);
+        console.log(projected);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       drawCube(ctx,projected);
   }
@@ -106,7 +106,7 @@ function checkKey(e) {
         
         projected[index]=res;
       });
-      console.log(cubeXYZ);
+      console.log(projected);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawCube(ctx,projected);
 }
@@ -122,7 +122,7 @@ function checkKey(e) {
             
             projected[index]=res;
           });
-          console.log(cubeXYZ);
+          console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -138,7 +138,7 @@ function checkKey(e) {
             
             projected[index]=res;
           });
-          console.log(cubeXYZ);
+          console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -154,7 +154,7 @@ function checkKey(e) {
             res = normalize(res);
             projected[index]=res;
           });
-          console.log(cubeXYZ);
+          console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -170,7 +170,7 @@ function checkKey(e) {
             
             projected[index]=res;
           });
-          console.log(cubeXYZ);
+          console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -187,7 +187,7 @@ function checkKey(e) {
             
             projected[index]=res;
           });
-        console.log(cubeXYZ);
+          console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }
@@ -204,7 +204,7 @@ function checkKey(e) {
             
             projected[index]=res;
           });
-        console.log(cubeXYZ);
+          console.log(projected);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawCube(ctx,projected);
     }

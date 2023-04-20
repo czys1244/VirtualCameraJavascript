@@ -1,21 +1,21 @@
 function drawCube(ctx, c) {
     let n = 4;
     for (let i = 0; i < n; i++) {
-        connect(ctx, c, 0+i*8, 1+i*8);
-        connect(ctx, c, 1+i*8, 2+i*8);
-        connect(ctx, c, 2+i*8, 3+i*8);
-        connect(ctx, c, 3+i*8, 0+i*8);
-        connect(ctx, c, 0+i*8, 7+i*8);
-        connect(ctx, c, 3+i*8, 4+i*8);
-        connect(ctx, c, 2+i*8, 5+i*8);
-        connect(ctx, c, 1+i*8, 6+i*8);
-        connect(ctx, c, 4+i*8, 5+i*8);
-        connect(ctx, c, 5+i*8, 6+i*8);
-        connect(ctx, c, 6+i*8, 7+i*8);
-        connect(ctx, c, 7+i*8, 4+i*8);
+        connect(ctx, c, 0 + i * 8, 1 + i * 8);
+        connect(ctx, c, 1 + i * 8, 2 + i * 8);
+        connect(ctx, c, 2 + i * 8, 3 + i * 8);
+        connect(ctx, c, 3 + i * 8, 0 + i * 8);
+        connect(ctx, c, 0 + i * 8, 7 + i * 8);
+        connect(ctx, c, 3 + i * 8, 4 + i * 8);
+        connect(ctx, c, 2 + i * 8, 5 + i * 8);
+        connect(ctx, c, 1 + i * 8, 6 + i * 8);
+        connect(ctx, c, 4 + i * 8, 5 + i * 8);
+        connect(ctx, c, 5 + i * 8, 6 + i * 8);
+        connect(ctx, c, 6 + i * 8, 7 + i * 8);
+        connect(ctx, c, 7 + i * 8, 4 + i * 8);
     }
-    connect(ctx, c, 4*8, 4*8+1);
-    connect(ctx, c, 4*8+2, 4*8+3);
+    connect(ctx, c, 4 * 8, 4 * 8 + 1);
+    connect(ctx, c, 4 * 8 + 2, 4 * 8 + 3);
     // connect(ctx, c, 0, 1);
     // connect(ctx, c, 1, 2);
     // connect(ctx, c, 2, 3);

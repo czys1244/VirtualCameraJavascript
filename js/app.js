@@ -8,14 +8,16 @@ let cubeXYZ2 = [[-0.5,-0.25,0.25,1],[-0.5,-0.25,0.75,1],[0,-0.25,0.75,1],[0,-0.2
 let projected = [[-0.25,-0.25,0.25,1],[-0.25,-0.25,0.75,1],[0.25,-0.25,0.75,1],[0.25,-0.25,0.25,1],[0.25,0.25,0.25,1],[0.25,0.25,0.75,1],[-0.25,0.25,0.75,1],[-0.25,0.25,0.25,1],[-0.75,-0.25,0.25,1],[-0.75,-0.25,0.75,1],[0.75,-0.25,0.75,1],[0.75,-0.25,0.25,1],[0.75,0.25,0.25,1],[0.75,0.25,0.75,1],[-0.75,0.25,0.75,1],[-0.75,0.25,0.25,1]];
 let fov = 120;
 let aspect=5/8;
-let znear=100;
-let zfar=1000;
+let znear=10;
+let zfar=100;
 let pmatrix=createPerspectiveMatrix(fov,aspect,znear,zfar);
 
 
 function connect(ctx,cube,a,b){
-
-  drawLine(ctx, [cube[a][0], cube[a][1]], [cube[b][0], cube[b][1]]);
+  if (cube[a][2]>0 && cube[b][2]>0){
+    drawLine(ctx, [cube[a][0], cube[a][1]], [cube[b][0], cube[b][1]]);
+  }
+  
 }
 if (canvas.getContext) {
     addEventListener("keydown", (event) => { });
