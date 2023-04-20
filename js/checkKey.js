@@ -12,7 +12,7 @@ function checkKey(e) {
     if (e.keyCode == '38') {
         console.log("up")
         const ctx = canvas.getContext('2d');
-        let xRmatrix=createXRotationMatrix(1);
+        let xRmatrix=createXRotationMatrix(-1);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xRmatrix,e);
             cubeXYZ[index] =res;
@@ -28,7 +28,7 @@ function checkKey(e) {
     else if (e.keyCode == '40') {
         console.log("down")
         const ctx = canvas.getContext('2d');
-        let xRmatrix=createXRotationMatrix(-1);
+        let xRmatrix=createXRotationMatrix(1);
         cubeXYZ.forEach((e,index) => {
             let res = multv(xRmatrix,e);
             cubeXYZ[index] =res;
