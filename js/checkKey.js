@@ -43,7 +43,7 @@ function checkKey(e) {
     else if (e.keyCode == '37') {
         console.log("left")
         const ctx = canvas.getContext('2d');
-        yRmatrix=createYRotationMatrix(-1);
+        yRmatrix=createYRotationMatrix(1);
         
         cubeXYZ.forEach((e,index) => {
             let res = multv(yRmatrix,e);
@@ -62,7 +62,7 @@ function checkKey(e) {
     else if (e.keyCode == '39') {
         console.log("right")
         const ctx = canvas.getContext('2d');
-        yRmatrix=createYRotationMatrix(1);
+        yRmatrix=createYRotationMatrix(-1);
         
         cubeXYZ.forEach((e,index) => {
             let res = multv(yRmatrix,e);
